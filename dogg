@@ -1,0 +1,46 @@
+#include <iostream>
+using namespace std;
+
+
+class Dog {
+public:
+    string name;
+    int age;
+    string breed;
+    void setName (string);
+    void setBreed (string);
+    void setAge (int);
+    void showDog();
+};
+void Dog::showDog()
+{
+    cout << "The dogs name is " << name << " and is a " << breed << " at the age of " << age << " years old.\n";
+    cout << "The license fee is a flat rate of $";
+    }
+void Dog::setName(string dogName)
+{
+    name = dogName;
+}
+void Dog::setBreed(string dogBreed)
+{
+    breed = dogBreed;
+}
+void Dog::setAge(int dogAge)
+{
+    age = dogAge;
+}
+int main()
+{
+
+    const string license = ("12.25");
+    Dog aDog;
+    cout << "Enter Dogs Name: \n";
+    cin >> aDog.name;
+    cout << "Enter the Dogs Breed" << endl;
+    cin >> aDog.breed;
+    cout << "Enter the Dogs Age" << endl;
+    cin >> aDog.age;
+    aDog.showDog();
+    cout << license;
+    return 0;
+}
