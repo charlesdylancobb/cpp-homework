@@ -1,0 +1,137 @@
+#include <iostream>
+using namespace std;
+
+class IceCream {
+
+string coneType;
+int numScoop;
+string cFlavor;
+
+public:
+
+    IceCream();
+    void setConeType(const string);
+    void setNumScoop(int);
+    void setCFlavor(const string);
+    string getConeType();
+    int getNumScoop();
+    string getCFlavor();
+};
+IceCream::IceCream()
+{
+    coneType = "Sugar";
+    numScoop = 1;
+    cFlavor = "Vanilla";
+}
+void IceCream::setConeType(const string cone)
+{
+    coneType = cone;
+}
+void IceCream::setNumScoop(int scoop)
+{
+    numScoop = scoop;
+}
+void IceCream::setCFlavor(const string flavor)
+{
+    cFlavor = flavor;
+}
+string IceCream::getConeType()
+{
+    return coneType;
+}
+int IceCream::getNumScoop()
+{
+    return numScoop;
+}
+string IceCream::getCFlavor()
+{
+    return cFlavor;
+}
+int main()
+{
+    string coneType;
+    int numScoop;
+    string cFlavor;
+    double Cost;
+    double scoopCost;
+
+    IceCream config;
+    cout << "What kind of cone, Sugar or Waffle?" << endl;
+    cin >> coneType;
+    if (coneType == "Sugar")
+    {
+        cout << "Cone Type Chosen is " << config.getConeType() << endl;
+    }
+    else
+    {
+        cout << "Cone Type Chosen is Waffle" << endl;
+    }
+
+    cout << "How Many Scoops, 1 or 2?" << endl;
+    cin >> numScoop;
+    if (numScoop <= 1)
+    {
+        cout << "Number of Scoop(s) is 1." << endl;
+    }
+    else
+    {
+        cout << "Number of Scoop(s) is " << numScoop << endl;
+    }
+
+    cout << "What Flavor?" << endl;
+    cin >> cFlavor;
+    if (cFlavor == "Vanilla")
+    {
+        cout << config.getCFlavor() << endl;
+    }
+    else
+    {
+        cout << "Flavor Chosen is " << cFlavor << endl;
+    }
+
+     cout << "Your Cone will Cost" << endl;
+
+    if (numScoop == 1)
+    {
+        cout << "+ $0.75" << endl;
+    }
+    else
+    {
+        cout << "+ $1.50" << endl;
+    }
+
+    if (coneType == "Sugar")
+    {
+        cout << "+ $0.00" << endl;
+    }
+    else
+    {
+        cout << "+ $0.40" << endl;
+    }
+
+    if (numScoop <= 1 && coneType == "Sugar")
+    {
+        cout << "$0.75" << endl;
+    }
+    else if (numScoop == 2 && coneType == "Sugar")
+    {
+        cout << "$1.50" << endl;
+    }
+    else if (numScoop == 1 && coneType == "Waffle")
+    {
+        cout << "$1.15" << endl;
+    }
+    else if (numScoop == 2 && coneType == "Waffle")
+    {
+        cout << "$1.90" << endl;
+    }
+    else
+    {
+        cout << "$.75" << endl;
+    }
+
+
+
+
+    return 0;
+}
