@@ -1,0 +1,48 @@
+#include<iostream>
+#include<string>
+using namespace std;
+
+template <class T>
+double half(T x)
+{
+
+  double h = x / 2;
+  return h;
+}
+class TuitionBill
+{
+   friend ostream& operator<<(ostream&, TuitionBill);
+   private:
+      double amount;
+      string student;
+
+   public:
+
+      TuitionBill(string, double);
+      double operator/(double);
+};
+TuitionBill::TuitionBill(string s, double amt)
+{
+   student = s;
+   amount = amt;
+}
+double TuitionBill::operator/(double factor)
+{
+   double half = amount / factor;
+   return half;
+}
+ostream& operator<<(ostream& out, TuitionBill t)
+{
+   out << t.student << "  Tuition: $" << t.amount << endl;
+   return out;
+}
+int main()
+{
+   double a = 47.00;
+   double b = 39.25;
+   TuitionBill tb("Smith", 4000.00);
+   cout << "Half of " << a << " is " << half(a) << endl;
+   cout << "Half of " << b << " is " << half(b) << endl;
+    cout << "Half of " << tb << "'s is $" << half(tb) << endl;
+   return 0;
+}
