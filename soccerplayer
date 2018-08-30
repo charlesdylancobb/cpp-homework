@@ -1,0 +1,39 @@
+#include<iostream>
+using namespace std;
+
+class SoccerPlayer
+{
+private:
+    int jerseyNum;
+    int goalNum;
+    int assistNum;
+    int Players[];
+
+public:
+    SoccerPlayer(int, int, int);
+    int operator>(SoccerPlayer);
+
+    SoccerPlayer()
+    {
+        Players[11];
+    }
+
+};
+SoccerPlayer::SoccerPlayer(int jNum, int gNum, int aNum)
+{
+    jerseyNum = jNum;
+    goalNum = gNum;
+    assistNum = aNum;
+}
+
+int SoccerPlayer::operator>(SoccerPlayer top)
+{
+    int total;
+    total = goalNum + assistNum;
+    return total;
+}
+int main()
+{
+    SoccerPlayer aSoccerPlayer;
+    return 0;
+}
