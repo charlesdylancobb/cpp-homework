@@ -1,0 +1,84 @@
+#include<iostream>
+using namespace std;
+class Book
+{
+public:
+    void setTitle(string t)
+    {
+        title = t;
+    }
+    void setAuthor(string a)
+    {
+        author = a;
+    }
+    void setLevel(int l)
+    {
+        level = l;
+    }
+    void setPages(int p)
+    {
+        pages = p;
+    }
+protected:
+    string title;
+    string author;
+    int level;
+    int pages;
+};
+class Fiction: public Book
+{
+public:
+    string getTitle()
+    {
+        return (title);
+    }
+    string getAuthor()
+    {
+        return (author);
+    }
+    int getLevel()
+    {
+        return (level);
+    }
+    int getPages()
+    {
+        return (pages);
+    }
+};
+class NonFiction: public Book
+{
+public:
+    string getTitle()
+    {
+        return (title);
+    }
+    string getAuthor()
+    {
+        return (author);
+    }
+    int getLevel()
+    {
+        return (level);
+    }
+    int getPages()
+    {
+        return (pages);
+    }
+};
+int main(void)
+{
+    Fiction aFiction;
+    NonFiction aNonFiction;
+    aFiction.setTitle ("FictionBookTitle");
+    aFiction.setAuthor ("Charles Cobb1");
+    aFiction.setLevel (3);
+    aFiction.setPages (500);
+    aNonFiction.setTitle ("NonFictionBookTitle");
+    aNonFiction.setAuthor ("Charles Cobb2");
+    aNonFiction.setLevel (2);
+    aNonFiction.setPages (300);
+
+    cout << aFiction.getTitle() << endl << aFiction.getAuthor() << endl << aFiction.getLevel() << endl << aFiction.getPages() << endl;
+    cout << aNonFiction.getTitle() << endl << aNonFiction.getAuthor() << endl << aNonFiction.getLevel() << endl << aNonFiction.getPages() << endl;
+    return 0;
+}
