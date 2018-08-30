@@ -1,0 +1,51 @@
+#include<iostream>
+using namespace std;
+class Shape
+{
+public:
+    void setWidth(int w)
+    {
+        width = w;
+    }
+    void setHeight(int h)
+    {
+        height = h;
+    }
+    void setLength(int l)
+    {
+        length = l;
+    }
+
+protected:
+    int width;
+    int height;
+    int length;
+};
+class Rectangle: public Shape
+{
+public:
+    int getArea()
+    {
+        return (width * length);
+    }
+};
+class Block: public Shape
+{
+public:
+    int getVolume()
+    {
+        return (width * length * height);
+    }
+};
+int main(void)
+{
+    Rectangle aRectangle;
+    Block aBlock;
+    aRectangle.setWidth (2);
+    aRectangle.setLength (4);
+    aBlock.setWidth (3);
+    aBlock.setLength (5);
+    aBlock.setHeight (7);
+    cout << "The Rectangle Area is: " << aRectangle.getArea() << " Square Inches, The Block Volume is " << aBlock.getVolume() << " Cubic Inches" << endl;
+    return 0;
+}
