@@ -1,0 +1,104 @@
+#include <iostream>
+using namespace std;
+
+class Fraction{
+    public:
+    int wholeNum;
+    int numerator;
+    int denominator;
+
+};
+
+
+int main()
+{
+
+   const int SZ = 1;
+   Fraction frac[SZ];
+   Fraction total, average;
+   int gcd;
+   int x, y;
+   for(x = 0; x < SZ; ++x)
+
+   do{
+
+   {
+      cout << "Enter the whole number part for fraction #" << (x + 1) << "  ";
+      cin >> frac[x].wholeNum;
+      cout << "Enter the numerator ";
+      cin >> frac[x].numerator;
+      cout << "Enter a denominator ";
+      cin >> frac[x].denominator;
+      while(frac[x].denominator == 0)
+      {
+        cout << "Enter a number other than 0." << endl;
+        cin >> frac[x].denominator;
+      }
+    }
+    cout << "Not Reduced:" << endl;
+    for(x = 0; x < SZ; ++x)
+    cout << frac[x].wholeNum << " " << frac[x].numerator <<
+      "/" << frac[x].denominator << endl;
+
+    cout << endl << "Fractions reduced to proper form: " << endl;
+    for(x = 0; x < SZ; ++x)
+    {
+      if(frac[x].numerator >= frac[x].denominator)
+      {
+      frac[x].wholeNum += frac[x].numerator / frac[x].denominator;
+     frac[x].numerator = frac[x].numerator % frac[x].denominator;
+      }
+      gcd = 1;
+      for(y = frac[x].numerator; y > 0; --y)
+      {
+  if(frac[x].numerator % y == 0 && frac[x].denominator % y == 0)
+         {
+            gcd = y;
+            y = 0;
+         }
+      }
+      frac[x].numerator /= gcd;
+      frac[x].denominator /= gcd;
+      if(frac[x].wholeNum == 0 && frac[x].numerator == 0)
+   cout << "0";
+      else
+      {
+   if(frac[x].wholeNum != 0)
+            cout << frac[x].wholeNum << " ";
+          if(frac[x].numerator != 0)
+            cout << frac[x].numerator << "/" << frac[x].denominator;      }
+      cout << endl;
+   }
+   total = frac[0];
+   for(x = 1; x < SZ; ++x)
+   {
+      total.wholeNum += frac[x].wholeNum;
+      total.numerator = total.numerator * frac[x].denominator +
+        frac[x].numerator * total.denominator;
+      total.denominator = total.denominator * frac[x].denominator;
+      if(total.numerator >= total.denominator)
+      {
+     total.wholeNum += total.numerator / total.denominator;
+     total.numerator = total.numerator % total.denominator;
+      }
+      gcd = 1;
+      for(y = total.numerator; y > 0; --y)
+        if(total.numerator % y == 0 && total.denominator % y == 0)
+        {
+          gcd = y;
+          y = 0;
+        }
+      total.numerator /= gcd;
+      total.denominator /= gcd;
+
+
+   }
+
+   } while(total.numerator > 0 && frac[x].wholeNum > 0);
+
+
+
+
+
+   return 0;
+}
