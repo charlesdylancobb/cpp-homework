@@ -1,0 +1,35 @@
+#include<iostream>
+
+
+using namespace std;
+
+class Student
+{
+   private:
+     int studentID;
+     double gpa;
+   public:
+      Student(const int, const double);
+      double operator+(const Student&);
+};
+
+Student::Student(const int i, const double g)
+{
+   studentID = i;
+   gpa = g;
+}
+
+double Student::operator+(const Student& stu)
+{
+   double sum;
+   sum = gpa + stu.gpa;
+   return sum;
+}
+
+int main()
+{
+   Student a(111, 3.50), b(222, 3.00);
+   double avg = (a + b) / 2;
+   cout << "Average GPA is " << avg;
+   return 0;
+}
