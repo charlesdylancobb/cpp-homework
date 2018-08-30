@@ -1,0 +1,61 @@
+#include<iostream>
+#include<string>
+using namespace std;
+class Worker
+{
+    private:
+     int idNum;
+     string lastName;
+     string firstName;
+     double salary;
+    public:
+     void setIdNum(int);
+     void setLastName(string);
+     void setFirstName(string);
+     void setSalary(double);
+     void displayWorker();
+  };
+
+  void Worker::displayWorker()
+{
+   cout << "ID #" << idNum << " Name: " << firstName << " " << lastName
+   	 << " Salary: $" << salary << endl;
+}
+
+void Worker::setIdNum(int num)
+{
+const int HIGHNUM = 9999;
+if(num <= HIGHNUM)
+idNum = num;
+else
+idNum = HIGHNUM;
+}
+
+void Worker::setLastName(string last)
+{
+   lastName = last;
+}
+void Worker::setFirstName(string first)
+{
+   firstName = first;
+}
+
+void Worker::setSalary(double payRate)
+{
+const double HIGHPAY = 99.99;
+if(payRate <= HIGHPAY)
+salary = payRate;
+else
+salary = 0;
+}
+
+int main()
+{
+   Worker aWorker;
+   aWorker.setIdNum(333);
+   aWorker.setLastName("Vasquez");
+   aWorker.setFirstName("Juan");
+   aWorker.setSalary(15.65);
+   aWorker.displayWorker();
+   return 0;
+}
