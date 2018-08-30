@@ -1,0 +1,59 @@
+#include<iostream>
+using namespace std;
+
+
+class Customer
+{
+    friend ostream& operator<<(ostream&, const Customer&);
+private:
+    int idNum;
+    int zipCode;
+public:
+    Customer(int, int);
+};
+
+Customer::Customer(int zip, int id)
+{
+    zipCode = zip;
+    idNum = id;
+}
+
+class City
+{
+    friend ostream& operator<<(ostream&, const City&);
+
+private:
+    string nameCity;
+    int cityZip;
+    string nameState;
+public:
+    City(string, int, string);
+};
+
+City::City(string cName, int cZip, string sName)
+{
+    nameCity = cName;
+    cityZip = cZip;
+    nameState = sName;
+}
+
+ostream& operator<<(ostream& out, const Customer& aCustomer)
+{
+    out << "Customer # " << aCustomer.idNum << " Zip Code: " << aCustomer.zipCode << endl;
+}
+
+ostream& operator<<(ostream& out, const  City& aCity)
+{
+    out << "City: " << aCity.nameCity << " State: " << aCity.nameState << endl;
+}
+
+int main()
+{
+    Customer aCustomer(72034, 123);
+    City aCity("Conway", 72034, "AR");
+    cout << aCustomer << aCity;
+
+
+
+    return 0;
+}
