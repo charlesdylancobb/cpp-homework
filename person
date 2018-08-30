@@ -1,0 +1,65 @@
+#include <iostream>
+using namespace std;
+
+class Person {
+
+string firstName;
+string lastName;
+string zipCode;
+
+public:
+
+    Person();
+    void setFirstName(const string);
+    void setLastName(const string);
+    void setZipCode(const string);
+    string getFirstName();
+    string getLastName();
+    string getZipCode();
+};
+Person::Person()
+{
+    lastName = "X";
+    firstName = "X";
+    zipCode = "X";
+}
+void Person::setLastName(const string last)
+{
+    lastName = last;
+}
+void Person::setFirstName(const string first)
+{
+    firstName = first;
+}
+void Person::setZipCode(const string zip)
+{
+    zipCode = zip;
+}
+string Person::getLastName()
+{
+    return lastName;
+}
+string Person::getFirstName()
+{
+    return firstName;
+}
+string Person::getZipCode()
+{
+    return zipCode;
+}
+int main()
+{
+    Person information;
+    cout << "Without Information Added." << endl;
+    cout << "Last name: " << information.getLastName() << endl;
+    cout << "First Name: " << information.getFirstName() << endl;
+    cout << "Zip Code: " << information.getZipCode() << endl;
+    information.setLastName("Cobb");
+    information.setFirstName("Charles");
+    information.setZipCode("72034");
+    cout << "With Information Added." << endl;
+    cout << "Last Name: " << information.getLastName() << endl;
+    cout << "First Name: " << information.getFirstName() << endl;
+    cout << "Zip Code: " << information.getZipCode() << endl;
+    return 0;
+}
