@@ -1,0 +1,51 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+class Order
+{
+    string MinCharge;
+    public:
+    int TableNum;
+    string ServName;
+    int HowMany;
+    public:
+    void setMinCharge(string);
+    void setTableNum(int);
+    void setServName(string);
+    void setHowMany(int);
+    void displayOrder();
+};
+void Order::displayOrder()
+{
+    cout << "Your table number is " << TableNum << ". Your Server will be " << ServName << endl << " Tonights cover charge for everyone will be: $" << (HowMany * 4.75) << endl;
+}
+void Order::setTableNum(int table)
+{
+    TableNum = table;
+}
+void Order::setServName(string server)
+{
+    ServName = server;
+}
+void Order::setHowMany(int patrons)
+{
+    HowMany = patrons;
+}
+void Order::setMinCharge(string min)
+{
+    MinCharge = min;
+}
+int main()
+{
+    Order aOrder;
+    cout << "Enter Table Number\n";
+    cin >> aOrder.TableNum;
+    cout << "Good, now enter the servers name\n";
+    cin >> aOrder.ServName;
+    cout << "Now enter how many patrons there is\n";
+    cin >> aOrder.HowMany;
+    aOrder.setMinCharge("$4.75");
+    aOrder.displayOrder();
+    return 0;
+}
