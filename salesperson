@@ -1,0 +1,23 @@
+#include<iostream>
+using namespace std;
+int main()
+{
+double sales;
+double SALES_GROWTH = 0.08;
+int years;
+int count = 1;
+cout << "Enter the First Years Sales ";
+cin >> sales;
+cout << "Enter the number of years to calculate growth at 8% per year: ";
+cin >> years;
+while(count <= years)
+{
+cout << "Year " << count <<
+", Sales: $" << sales << endl;
+sales = sales + sales * SALES_GROWTH;
+++count;
+}
+cout << "The projected growth in sales is, " <<
+" $" << sales << endl;
+return 0;
+}
